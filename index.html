@@ -3,14 +3,32 @@
 <head>
 <title>audio capture</title>
 </head>
-<body ng-controller="myCtrl as ctrl">
+<body ng-controller="recordingCtrl as ctrl">
+<div class="container">
+  <div class="row">
+    <audio id="player" controls></audio>
+    <br/>
+    <div>
+      current file: {{file.fileName}}
+    </div>
+    <button ng-click="start()" class="btn btn-danger">Record</button>
+    <button ng-click="stop()" class="btn btn-info">Stop</button>
+    <button ng-click="save()" ng-class="">Save</button>
+    <button ng-click="loadFile()">Load file</button>
+  </div>
+</div>
 
-<audio id="player" controls></audio>
-
-<button ng-click="stop()">Stop</button>
-<button ng-click="start()">start</button>
 
 </body >
 </html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="node_modules\firebase\firebase.js"></script>
 <script src="node_modules\angular\angular.js"></script>
-<script src="app.js"></script>
+<script src="node_modules\angularfire\dist\angularfire.js"></script>
+<script src="app\app.config.js"></script>
+<script src="app\recording.service.js"></script>
+<script src="app\storage.service.js"></script>
+<script src="app\app.controller.js"></script>
